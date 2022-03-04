@@ -1,20 +1,16 @@
-let computerSelection;
-let playerSelection;
-
-
-const myArray = ["Rock", "Paper", "Scissors"];
+const myArray = ["Rock", "Paper", "Scissor"];
 
 function computerPlay() {
   return myArray[~~(Math.random() * myArray.length)];
 }
 
 
-function playRound(playerSelection,computerSelection){
+function playRound(){
     
-    playerSelection = window.prompt("Choose Rock, Paper or Scissor").toLocaleLowerCase();
+    let playerSelection = window.prompt("Choose Rock, Paper or Scissor").toLocaleLowerCase();
    
-    computerSelection = computerPlay().toLocaleLowerCase();
-   
+    let computerSelection = computerPlay().toLocaleLowerCase();
+
     if (playerSelection === 'rock' && computerSelection === 'rock') {
       console.log('Empate');
   } else if (playerSelection === 'rock' && computerSelection === 'paper') {
@@ -41,19 +37,5 @@ function playRound(playerSelection,computerSelection){
 }
 
 for (let i = 0; i < 5; i++) {
-    playRound(playerSelection,computerSelection);
+    playRound();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
