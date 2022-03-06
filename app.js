@@ -1,41 +1,55 @@
-const myArray = ["Rock", "Paper", "Scissor"];
+const computerSelection = computerPlay();
+let selection = '';
+
+document.addEventListener('DOMContentLoaded', function(){
+    App();
+});
+
+function App(){
+    computerPlay();
+    playRound();
+};
+
+
+const playerSelectionButton = document.querySelectorAll('button');
+playerSelectionButton.forEach(function(playerSelection){
+     playerSelection.addEventListener('click', (e) => {
+     let selection = e.target.value
+     playRound(selection);
+    }) 
+});
+
 
 function computerPlay() {
-  return myArray[~~(Math.random() * myArray.length)];
-}
+    const myArray = ["Rock", "Paper", "Scissor"];
+    return myArray[~~(Math.random() * myArray.length)];
+  }
 
 
 function playRound(){
-    
-    let playerSelection = window.prompt("Choose Rock, Paper or Scissor").toLocaleLowerCase();
-   
-    let computerSelection = computerPlay().toLocaleLowerCase();
-
-    if (playerSelection === 'rock' && computerSelection === 'rock') {
+    if (selection === 'rock' && computerSelection === 'rock') {
       console.log('Empate');
-  } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+  } else if (selection === 'rock' && computerSelection === 'paper') {
       console.log('Ganaste');
-  } else if (playerSelection === 'rock' && computerSelection === 'scissor') {
+  } else if (selection === 'rock' && computerSelection === 'scissor') {
       console.log('Ganaste');
   }
   
-    if (playerSelection ==='paper' && computerSelection === 'paper'){
+    if (selection ==='paper' && computerSelection === 'paper'){
       console.log('Empate');
-  } else if (playerSelection === 'paper' && computerSelection === 'scissor') {
+  } else if (selection === 'paper' && computerSelection === 'scissor') {
       console.log('Perdiste');
-  } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+  } else if (selection === 'paper' && computerSelection === 'rock') {
       console.log('Ganaste');
   }
   
-    if (playerSelection ==='scissor' && computerSelection === 'scissor'){
+    if (selection ==='scissor' && computerSelection === 'scissor'){
       console.log('Empate');
-  } else if (playerSelection === 'scissor' && computerSelection === 'rock') {
+  } else if (selection === 'scissor' && computerSelection === 'rock') {
       console.log('Perdiste');
-  } else if (playerSelection === 'scissor' && computerSelection === 'paper') {
+  } else if (selection === 'scissor' && computerSelection === 'paper') {
       console.log('Ganaste');
   }   
 }
 
-for (let i = 0; i < 5; i++) {
-    playRound();
-}
+
