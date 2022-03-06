@@ -52,17 +52,23 @@ function playRound(selection){
 function checkCount(){
   if (playerCount === 5) {
         winnerContainer.textContent = 'You Win'
-        setTimeout(resetCount , 1200);
+        setTimeout(resetCount, 500);
   } else if (computerCount === 5) {
         winnerContainer.textContent = 'Computer Win'
-        setTimeout(resetCount , 1200);
+        setTimeout(resetCount, 500);
     };
 }
 
 function resetCount (){
-  computerValue.textContent = 0;
-  playerValue.textContent  = 0;
-  winnerContainer.textContent = ""
+    computerValue.textContent = 0;
+    playerValue.textContent  = 0;
+    playerCount = 0;
+    computerCount = 0;
+    setTimeout(resetContainer, 1500);
+}
+
+function resetContainer(){
+    winnerContainer.textContent = ""
 }
 
 
